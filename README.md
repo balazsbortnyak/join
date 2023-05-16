@@ -1,2 +1,0 @@
-# join
-wearefirka-join
