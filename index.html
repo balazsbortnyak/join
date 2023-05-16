@@ -28,7 +28,7 @@
         </div>
         <div class="mb-3">
             <label for="messageInput" class="form-label">Mi a neved?</label>
-            <input type="text" class="form-control ninpot" id="voltInput" placeholder="Igen, a(z) XYZ szerveren, másfél hónapot voltam admin 4 rangban." required>
+            <input type="text" class="form-control ninpot" id="voltInput" placeholder="Kis Lajos" required>
         </div>
         <div class="mb-3">
             <label for="messageInput" class="form-label">Mondj egy pár negatívumot magadról.</label>
@@ -36,7 +36,7 @@
         </div>
         <div class="mb-3">
             <label for="messageInput" class="form-label">Miért szeretnél a Firka csapatába csatlakozni? És mikor és hol találtál rá a Firka Co.-ra?</label>
-            <textarea type="text" class="form-control ninpot" id="foglInput" style="min-height:6vw" placeholder="Nagyon szeretem a Firka munkásságát..." required></textarea>
+            <textarea type="text" class="form-control ninpot" id="foglInput2" style="min-height:6vw" placeholder="Nagyon szeretem a Firka munkásságát..." required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Jelentkezés</button>
       </form>
@@ -59,6 +59,7 @@
         const senderKor = document.getElementById('korInput').value;
         const senderVolte = document.getElementById('voltInput').value;
         const senderFogl = document.getElementById('foglInput').value;
+         const senderFogl2 = document.getElementById('foglInput2').value;
 
         const webhookBody = {
             embeds: [{
@@ -67,8 +68,9 @@
                     { name: 'E-mail címe', value: senderEmail },
                     { name: 'Discord címe', value: senderDiscord },
                     { name: 'Életkora', value: senderKor },
-                    { name: 'Negatívumok', value: senderVolte },
-                    { name: 'Miért.', value: senderFogl },
+                    { name: 'Neve', value: senderVolte },
+                    { name: 'Negatívum.', value: senderFogl },
+                     { name: 'Negatívum.', value: senderFogl2 },
                 ]
             }],
         };
