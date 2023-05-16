@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Firka - Firka Co.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/1023192538141700096/1108073755495891034/Group_1_5.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <img src="https://cdn.discordapp.com/attachments/1023192538141700096/1108075404041924700/Ellipse_1_5.png" style="position: fixed; z-index: -111;">
+    <img src="https://cdn.discordapp.com/attachments/1023192538141700096/1108073755495891034/Group_1_5.png" alt="" class="rounded mx-auto d-block m-5" width="100px">
+    <h1 class="text-center text-white display-4 m-5"><b class="b-title" style="font-weight: 700">Firka Co.</b> Join now!</h1>
+    <form onsubmit="sendContact(event)" class="container" style="max-width: 60vh; ">
+        <div class="mb-3">
+          <label for="emailInput" class="form-label">E-mail címed</label>
+          <input type="email" class="form-control ninpot"  id="emailInput" placeholder="neved@szolgaltato.hu" required>
+        </div>
+        <div class="mb-3">
+          <label for="messageInput" class="form-label">Discord neved</label>
+          <input type="text" class="form-control ninpot" id="dcInput" placeholder="Discordneved#1233" required>
+        </div>
+        <div class="mb-3">
+            <label for="messageInput" class="form-label">Hány éves vagy?</label>
+            <input type="text" class="form-control ninpot" id="korInput" placeholder="43" required>
+        </div>
+        <div class="mb-3">
+            <label for="messageInput" class="form-label">Mi a neved?</label>
+            <input type="text" class="form-control ninpot" id="voltInput" placeholder="Igen, a(z) XYZ szerveren, másfél hónapot voltam admin 4 rangban." required>
+        </div>
+        <div class="mb-3">
+            <label for="messageInput" class="form-label">Mondj egy pár negatívumot magadról.</label>
+            <input type="text" class="form-control ninpot" id="foglInput" placeholder="Néha egoista vagyok, de igyekszem ellensúlyozni..." required>
+        </div>
+        <div class="mb-3">
+            <label for="messageInput" class="form-label">Miért szeretnél a Firka csapatába csatlakozni? És mikor és hol találtál rá a Firka Co.-ra?</label>
+            <textarea type="text" class="form-control ninpot" id="foglInput" style="min-height:6vw" placeholder="Nagyon szeretem a Firka munkásságát..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Jelentkezés</button>
+      </form>
+
+    <p class="text-center text-white text-opacity-25 mt-1">Firka Co. © | <a href="http://wearefirka.hu/">Firka Co.</a></p>
+</body>
+<script>
+    function jelentkezes() {
+        window.open('responses/')
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+<script>
+    async function sendContact(ev) {
+        ev.preventDefault();
+
+        const senderEmail = document.getElementById('emailInput').value;
+        const senderDiscord = document.getElementById('dcInput').value;
+        const senderKor = document.getElementById('korInput').value;
+        const senderVolte = document.getElementById('voltInput').value;
+        const senderFogl = document.getElementById('foglInput').value;
+
+        const webhookBody = {
+            embeds: [{
+                title: 'Új Jelentkezés Érkezett',
+                fields: [
+                    { name: 'E-mail címe', value: senderEmail },
+                    { name: 'Discord címe', value: senderDiscord },
+                    { name: 'Életkora', value: senderKor },
+                    { name: 'Negatívumok', value: senderVolte },
+                    { name: 'Miért.', value: senderFogl },
+                ]
+            }],
+        };
+
+        const webhookUrl = 'https://discord.com/api/webhooks/1108077542201643158/j0yzKYP8Z0rR3RteTXxJqaOmhNWR_sLNjF7DxDvPIdTXZNoCUn_BuBASoKLkJoE35ahY';
+
+        const response = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(webhookBody),
+        });
+
+        if (response.ok) {
+            window.location.replace('responses/vettuk.html',"_self")
+        } else {
+            alert('Hiba történt, kérjük vedd fel a kapcsolatot a csapattal!')
+        }
+    }
+</script>
+</html>

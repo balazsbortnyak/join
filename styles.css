@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.ninpot::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    rgba(255, 255, 255, 0.32);
+    font-weight: 200;
+}
+.ninpot:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:        rgba(255, 255, 255, 0.32);
+   opacity:  1;
+   font-weight: 200;
+}
+.ninpot::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:        rgba(255, 255, 255, 0.32);
+   opacity:  1;
+   font-weight: 200;
+}
+.ninpot:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: rgba(255, 255, 255, 0.32);
+   font-weight: 200;
+}
+.ninpot::-ms-input-placeholder { /* Microsoft Edge */
+   color:        rgba(255, 255, 255, 0.32);
+   font-weight: 200;
+}
+
+.ninpot::placeholder { /* Most modern browsers support this now. */
+   color:        rgba(255, 255, 255, 0.32);
+   font-weight: 200;
+}
+
+body {
+    background-color: #1d1d1d;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.b-title {
+    background: #ffe51c;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ninpot {
+    background-color: #1d1d1d;
+    border-top: #ffe51c;
+    border-left: #ffe51c;
+    border-right:#ffe51c;
+    color: white;
+    font-size: larger;
+    
+}
+
+.ninpot:hover {
+    -webkit-box-shadow: 0px 0px 25px -2px #ffe51c8d; 
+    box-shadow: 0px 0px 25px -2px #ffe51c77;
+}
+
+.ninpot:focus {
+    -webkit-box-shadow: 0px 0px 25px -2px #ffe51c8d; 
+    box-shadow: 0px 0px 25px -2px #ffe51c77;
+    background-color: #1d1d1d;
+    color: white;
+}
+
