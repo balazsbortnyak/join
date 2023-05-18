@@ -43,53 +43,5 @@
 
     <p class="text-center text-white text-opacity-25 mt-1">Firka Co. © | <a href="http://wearefirka.hu/">Firka Co.</a></p>
 </body>
-<script>
-    function jelentkezes() {
-        window.open('responses/')
-    }
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-<script>
-    async function sendContact(ev) {
-        ev.preventDefault();
-
-        const senderEmail = document.getElementById('emailInput').value;
-        const senderDiscord = document.getElementById('dcInput').value;
-        const senderKor = document.getElementById('korInput').value;
-        const senderVolte = document.getElementById('voltInput').value;
-        const senderFogl = document.getElementById('foglInput').value;
-         const senderFogl2 = document.getElementById('foglInput2').value;
-
-        const webhookBody = {
-            embeds: [{
-                title: 'Új Jelentkezés Érkezett',
-                fields: [
-                    { name: 'E-mail címe', value: senderEmail },
-                    { name: 'Discord címe', value: senderDiscord },
-                    { name: 'Életkora', value: senderKor },
-                    { name: 'Neve', value: senderVolte },
-                    { name: 'Negatívum.', value: senderFogl },
-                     { name: 'Negatívum.', value: senderFogl2 },
-                ]
-            }],
-        };
-
-        const webhookUrl = 'https://discord.com/api/webhooks/1108077542201643158/j0yzKYP8Z0rR3RteTXxJqaOmhNWR_sLNjF7DxDvPIdTXZNoCUn_BuBASoKLkJoE35ahY';
-
-        const response = await fetch(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(webhookBody),
-        });
-
-        if (response.ok) {
-            window.location.replace('responses/vettuk.html',"_self")
-        } else {
-            alert('Hiba történt, kérjük vedd fel a kapcsolatot a csapattal!')
-        }
-    }
-</script>
+<script src="script.js"></script>
 </html>
